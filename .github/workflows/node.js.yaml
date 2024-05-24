@@ -36,8 +36,7 @@ jobs:
 
       # - run: npm run build --if-present # dont want to build right now
       # - run: npm test # dont want to run tests right now
-      
+
       - name: Run Linter
-        uses: wearerequired/lint-action@v2
-        with:
-          eslint: true
+        run: eslint . --ext .js,.ts
+        
