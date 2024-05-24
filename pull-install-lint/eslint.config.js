@@ -1,6 +1,4 @@
-import { Linter } from 'eslint';
-
-export default new Linter.Config({
+module.exports = {
   ignorePatterns: ['projects/**/*'],
   overrides: [
     {
@@ -41,4 +39,4 @@ export default new Linter.Config({
       },
     },
   ],
-});
+};
