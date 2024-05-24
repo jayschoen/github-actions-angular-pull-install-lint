@@ -38,4 +38,4 @@ jobs:
       # - run: npm test # dont want to run tests right now
 
       - name: Run Linter
-        run: npx eslint "src/**/*.ts" "src/**/*.html"
+        run: npx eslint "src/**/*.ts" "src/**/*.html" --no-ignore
