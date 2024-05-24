@@ -1,5 +1,5 @@
-const { configs: tsConfigs } = require('@typescript-eslint/eslint-plugin');
-const angularEslint = require('@angular-eslint/eslint-plugin');
+const { typescript } = require('@typescript-eslint/eslint-plugin');
+const { configs: angularEslint } = require('@angular-eslint/eslint-plugin');
 const angularTemplate = require('@angular-eslint/eslint-plugin-template');
 
 module.exports = [
@@ -16,12 +16,12 @@ module.exports = [
       },
     },
     plugins: {
-      '@typescript-eslint': tsConfigs,
+      '@typescript-eslint': typescript,
       '@angular-eslint': angularEslint,
     },
     rules: {
-      ...tsConfigs.recommended.rules,
-      ...angularEslint.configs.recommended.rules,
+      ...typescript.recommended.rules,
+      ...angularEslint.recommended.rules,
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-vars': [
@@ -45,7 +45,7 @@ module.exports = [
       parser: '@angular-eslint/template-parser',
     },
     rules: {
-      ...angularTemplate.configs.recommended.rules,
+      ...angularTemplate.recommended.rules,
       'max-len': ['error', { code: 140 }],
     },
   },
