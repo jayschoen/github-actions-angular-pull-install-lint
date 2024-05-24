@@ -38,4 +38,4 @@ jobs:
       # - run: npm test # dont want to run tests right now
 
       - name: Run Linter
-        run: npx eslint
+        run: npx eslint . --ext .js,.ts
