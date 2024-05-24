@@ -1,5 +1,4 @@
 module.exports = {
-  ignorePatterns: ['projects/**/*'],
   overrides: [
     {
       files: ['*.ts'],
