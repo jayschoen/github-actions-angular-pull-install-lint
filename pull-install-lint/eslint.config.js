@@ -1,8 +1,10 @@
-import { typescript } from '@eslint/config';
+const { configs: tsConfigs } = require('@typescript-eslint/eslint-plugin');
+const angularEslint = require('@angular-eslint/eslint-plugin');
+const angularTemplate = require('@angular-eslint/eslint-plugin-template');
 
-export default [
+module.exports = [
   {
-    ignores: ['projects/**/*']
+    ignores: ['projects/**/*'],
   },
   {
     files: ['**/*.ts'],
@@ -14,12 +16,12 @@ export default [
       },
     },
     plugins: {
-      '@typescript-eslint': require('@typescript-eslint/eslint-plugin'),
-      '@angular-eslint': require('@angular-eslint/eslint-plugin'),
+      '@typescript-eslint': tsConfigs,
+      '@angular-eslint': angularEslint,
     },
     rules: {
-      ...typescript.configs.recommended.rules,
-      ...require('@angular-eslint/eslint-plugin').configs.recommended.rules,
+      ...tsConfigs.recommended.rules,
+      ...angularEslint.configs.recommended.rules,
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-vars': [
@@ -37,13 +39,13 @@ export default [
   {
     files: ['**/*.html'],
     plugins: {
-      '@angular-eslint/template': require('@angular-eslint/eslint-plugin-template'),
+      '@angular-eslint/template': angularTemplate,
     },
     languageOptions: {
       parser: '@angular-eslint/template-parser',
     },
     rules: {
-      ...require('@angular-eslint/eslint-plugin-template').configs.recommended.rules,
+      ...angularTemplate.configs.recommended.rules,
       'max-len': ['error', { code: 140 }],
     },
   },
