@@ -38,4 +38,4 @@ jobs:
       # - run: npm test # dont want to run tests right now
 
       - name: Run Linter
-        run: npx eslint ./pull-install-lint
+        run: npx eslint .
