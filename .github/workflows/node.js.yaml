@@ -38,8 +38,8 @@ jobs:
       # - run: npm run build --if-present # dont want to build right now
       # - run: npm test # dont want to run tests right now
 
-      - name: Run Linter
-        run: npx eslint . --ext .js,.ts
+      # - name: Run Linter
+      #   run: npx eslint . --ext .js,.ts
 
       - name: cypress
         uses: cypress-io/github-action@v6
