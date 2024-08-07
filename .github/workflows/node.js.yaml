@@ -40,3 +40,10 @@ jobs:
 
       - name: Run Linter
         run: npx eslint . --ext .js,.ts
+
+      - name: cypress
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm start
+          wait-on: http://[::1]:4200
+          
