@@ -18,18 +18,25 @@ jobs:
       run:
         working-directory: ./pull-install-lint
 
-    strategy:
-      matrix:
-        node-version: [18.x] #[14.x, 16.x, 18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    # strategy:
+    #   matrix:
+    #     node-version: [18.x] #[14.x, 16.x, 18.x]
+    #     # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      # - name: Use Node.js ${{ matrix.node-version }}
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: ${{ matrix.node-version }}
+      #     cache: 'npm'
+      #     cache-dependency-path: ./pull-install-lint/package-lock.json
+
+      - name: Setup Node 18.18.2
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 18.18.2
           cache: 'npm'
           cache-dependency-path: ./pull-install-lint/package-lock.json
 
@@ -45,6 +52,6 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           working-directory: ./pull-install-lint
-          start: npm start
-          wait-on: http://[::1]:4200
+          start: npm run port-test
+          wait-on: http://[::1]:4400
           
