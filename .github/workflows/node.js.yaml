@@ -44,6 +44,7 @@ jobs:
       - name: cypress
         uses: cypress-io/github-action@v6
         with:
+          working-directory: ./pull-install-lint
           start: npm start
           wait-on: http://[::1]:4200
           
